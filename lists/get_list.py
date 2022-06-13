@@ -60,7 +60,7 @@ def get_list(http_session: requests.AuthorizedSession,
   if response.status_code >= 400:
     print(response.text)
   response.raise_for_status()
-  return response.json()["lines"]
+  return response.json().get("lines", [])
 
 
 if __name__ == "__main__":
